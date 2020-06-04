@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon size="large" (click)="close()" name="close-outline"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides pager="true" [options]="slideOpts" #slides>
+    <ion-slide *ngFor="let item of Images; let i=index">
+      <img [src]="item.path" [alt]="'Mango Item'+i" />
+    </ion-slide>
+  </ion-slides>
+  
+  <ion-item lines="full">
+    <ion-row>
+      <ion-col (click)="imageLoad(i)" class="customImage" *ngFor="let item of Images; let i=index" size="2">
+        <img [src]="item.path" [alt]="'Mango Item'+i" />
+      </ion-col>
+    </ion-row>
+  </ion-item>
+</ion-content>
