@@ -1,0 +1,113 @@
+@import '../../theme/variables.scss';
+$border:"#f0f0f0";
+ion-content{
+    .details{
+       p,h5{
+           margin-left: 15px;
+       }
+    }
+    .contents{
+        width: 100%;
+        // color: #99959579;
+        font-size: small;
+        opacity: 0.60;
+        p{
+            margin: 0px;
+        }
+        .hide{
+            height: 10px;
+        }
+    }
+    .packSizes{
+        border: 1px solid #f0f0f0;
+        margin: 5px 15px;
+        border-radius: 10px;
+        ion-radio{
+            color: #2dd36f;
+
+        }
+    }
+    .item-radio-checked{       
+            border: 1.2px solid #2dd36f;    
+    }
+    .actionRow{
+        cursor: pointer;
+        margin: 5px 0px;
+        font-size: small;
+        ion-col{
+            padding: 10px;
+        }
+        .saveLater{
+            background-color: rgb(61, 61, 61);
+            color: white;
+        }
+        .saveLaterDisable{
+            background-color: rgb(211, 207, 207);
+            color: rgb(61, 61, 61);
+        }
+        .addCart{
+            background-color: #eb445a;
+            color: white;
+        }
+        .addCartCount{
+            background-color: white;
+            color: #eb445a;
+            text-align: center;
+            height: fit-content;
+            padding: inherit;
+            ion-icon{
+                font-size: 16px;
+                color: #eb445a;
+            }
+        }
+    }
+    .extraInfo{
+        text-align: center;
+        margin: 3px 0px;
+        background-color: white;          
+        ion-col{
+            // border-left: 1px solid black;
+            p{
+                margin: 0px;
+               
+            }
+    }
+    }
+    // .list .item.item-accordion {
+    //     line-height: 38px;
+    //     padding-top: 0;
+    //     padding-bottom: 0;
+    //     transition: 0.09s all linear;
+    //   }
+    //   .list .item.item-accordion.ng-hide {
+    //     line-height: 0px;
+    //   }
+    //   .list .item.item-accordion.ng-hide-add,
+    //   .list .item.item-accordion.ng-hide-remove {
+    //     display: block !important;
+    //   }
+    .customImage{
+        width: 60px;
+        margin: 2px;
+        border: 1px solid #f0f0f0;
+    //    :hover{
+        // border: 1px solid red;
+        // }
+        img{
+            width: 50px;
+        }
+    }
+    .subMessage{
+        font-size:small
+    }
+    ion-slides{
+        height: 200px;
+        ion-slide{
+            // border-bottom: 1px solid #f0f0f0;
+            img{
+                width:150px;
+                height:150px
+            }            
+        }
+    }
+}
