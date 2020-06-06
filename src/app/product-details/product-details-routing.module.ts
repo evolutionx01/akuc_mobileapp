@@ -7,7 +7,15 @@ const routes: Routes = [
   {
     path: '',
     component: ProductDetailsPage
+  },  {
+    path: 'image-modal',
+    loadChildren: () => import('./image-modal/image-modal.module').then( m => m.ImageModalPageModule)
+  },
+  {
+    path: 'image-modal',
+    loadChildren: () => import('./image-modal/image-modal.module').then( m => m.ImageModalPageModule)
   }
+
 ];
 
 @NgModule({

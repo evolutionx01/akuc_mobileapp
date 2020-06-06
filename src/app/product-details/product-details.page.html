@@ -8,5 +8,99 @@
 </ion-header>
 
 <ion-content>
+    <ion-text class="details" color="dark">
+      <h5 class="itemName">Banganapalli Mango, 1 Kg</h5>
+      <p class="price">Rs 79 <ion-badge class="offer" color="danger">20% off</ion-badge>
+      </p>
+      <p class="subMessage" color="light">(Inclusive of all taxes)</p>
+    </ion-text>
+    <ion-slides pager="false" [options]="slideOpts" #slides>
+      <ion-slide (click)="openModal()" *ngFor="let item of Images; let i=index">
+        <img [src]="item.path" [alt]="'Mango Item'+i" />
+      </ion-slide>
+    </ion-slides>
+    <ion-item lines="full">
+      <ion-row>
+        <ion-col (click)="imageLoad(i)" class="customImage" *ngFor="let item of Images; let i=index" size="2">
+          <img [src]="item.path" [alt]="'Mango Item'+i" />
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-list>
+      <ion-radio-group [(ngModel)]="selectedPack" (ionChange)="selectPack($event)">
+        <ion-list-header>
+          <ion-label>
+            Pack Sizes
+          </ion-label>
+        </ion-list-header>
+        <ion-item lines="none" class="packSizes" *ngFor="let item of packetOptions;let i=index">
+          <ion-label>{{item.quantity}}</ion-label>
+          <ion-label>{{'MRP: Rs '+item.price}}</ion-label>
+          <ion-radio color="success" [value]="item.id"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+    <ion-row class="actionRow">
+      <ion-col *ngIf="cartCount===0" size='6' class="saveLater">
+        <ion-icon name="bookmark-outline"></ion-icon> SAVE FOR LATER
+      </ion-col>
+      <ion-col *ngIf="cartCount>0" size='6' class="saveLaterDisable">
+        <ion-icon name="bookmark-outline"></ion-icon> SAVE FOR LATER
+      </ion-col>
+      <ion-col *ngIf="cartCount===0" (click)="handleCart('add')" size='6' class="addCart">
+        <ion-icon name="basket-outline"></ion-icon> ADD TO BASKET
+      </ion-col>
+      <ion-col *ngIf="cartCount>0" size='6' class="addCartCount">
+        <ion-row>
+          <ion-col (click)="handleCart('remove')" size="4">
+            <ion-icon name="remove-circle-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="4">{{cartCount}}</ion-col>
+          <ion-col (click)="handleCart('add')" size="4">
+            <ion-icon name="add-circle-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-item lines="full">
+      <ion-label>About this product</ion-label>
+    </ion-item>
+    <ion-item *ngFor="let item of contents;let i=index">
+      <ion-row class="contents">
+        <ion-col size="10">
+          <div class="ion-text-start">{{item.name}}</div>
+        </ion-col>
+        <ion-col size="2">
+          <ion-icon (click)="toggleContent(i)" class="ion-float-right"
+            [name]="item.show?'remove-outline':'add-outline'"></ion-icon>
+        </ion-col>
+        <ion-col size="12">
+          <p [class]="item.show?'show':'hide'">
+            {{item.content}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label>Ratings & Reviews</ion-label>
+    </ion-item>
 
-</ion-content>
+    <!-- For rating
+    <ion-row>
+      <ion-col size="10">
+        <div class="ion-text-start">3 *</div>
+      </ion-col>
+      <ion-col size="2">
+        <ion-icon class="ion-float-right" name="chevron-forward-outline"></ion-icon>
+      </ion-col>
+    </ion-row>
+
+    For navigating related products
+    <ion-row class="extraInfo">
+      <ion-col size="10">
+        <div class="ion-text-start">View More Products</div>
+      </ion-col>
+      <ion-col size="2">
+        <ion-icon class="ion-float-right" name="chevron-forward-outline"></ion-icon>
+      </ion-col>
+    </ion-row> -->
+  </ion-content>
