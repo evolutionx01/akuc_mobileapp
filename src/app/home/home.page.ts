@@ -50,10 +50,20 @@ export class HomePage implements OnInit {
       path: "/assets/images/mountains.jpg"
     },
   ]
+  categoryList: any[]=[
+    {
+      url:'/assets/images/Fruites.jpg',
+      name:'Fruits'
+    },
+    {
+      url:'/assets/images/Veggies.jpeg',
+      name:'Vegetables'
+    }
+  ]
   ItemsList: any[] = [
     {
       path: '/assets/images/mango1.png',
-      name: "Mango hlkhdsdSFsdf SDSF SD oa",
+      name: "MangSF SD oa",
       selectedQuantity: 1,
       quantity: [
         {

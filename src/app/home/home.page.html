@@ -24,14 +24,14 @@
     </ion-card-header>
     <ion-card-content>
       <ion-row>
-        <ion-col class="box" size="6">
-          <img src='/assets/images/Fruites.jpg' alt="Fruits" />
-          <h5>Fruits</h5>
+        <ion-col *ngFor="let item of categoryList;" size="6">
+          <img routerLink="/product-list" [src]="item.url" [alt]="item.name" />
+          <h5>{{item.name}}</h5>
         </ion-col>
-        <ion-col size="6">
+        <!-- <ion-col size="6">
           <img src='/assets/images/Veggies.jpeg' alt="Veggies" />
           <h5>Vegetables</h5>
-        </ion-col>
+        </ion-col> -->
       </ion-row>
     </ion-card-content>
   </ion-card>
@@ -40,8 +40,8 @@
       <ion-slides pager="false" [options]="slideOpts" #slides>
         <ion-slide class="imageSlide" *ngFor="let item of ItemsList; let i=index">
           <div class="box">
-            <img [src]="item.path" [alt]="'Mango Item'+i" />
-            <ion-label>
+            <img  routerLink="/product-details"  [src]="item.path" [alt]="'Mango Item'+i" />
+            <ion-label routerLink="/product-details">
               <h5>{{item.name}}</h5>
             </ion-label>
             <ion-select [value]="item.selectedQuantity">
