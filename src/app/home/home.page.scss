@@ -21,10 +21,61 @@ ion-content{
             height: 10rem;
         }        
     }
-    .ItemsCard{
-        .mainLayout{
-            width: 5rem;
-            overflow-x: scroll;
+    .itemsCard{
+        ion-card-content{
+            height: 300px;
+            width: auto;
+            background-image: url('/assets/images/background.jpg');
+        ion-slides{
+        .imageSlide{
+            // --background: red;
+            // height: 10rem;
+            .box{
+                background: white;
+                margin:0.5rem;
+                padding: 0.5rem;
+                min-height: 255px;
+                width: 95%;
+                font-size: smaller;
+                border-radius: 0.5rem;
+                img{
+                    margin: 5px;
+                    width: 3rem;
+                    height: 3rem;
+                }
+                .title{
+                    width: 100%;
+                }
+                ion-select{
+                    max-width: 95%;
+                    border: 0.5px solid rgb(238, 238, 238);
+                    border-radius: 0.5rem;                
+                }
+                .OfPrice{
+                    text-decoration: line-through;
+                    color: #666;
+                }
+                .AcPrice{
+                    font-weight: bold;
+                }
+                .addCart{
+                    padding-left: 1.5rem;
+                    width: 100%;
+                }
+                .addCartCount{
+                    background-color: white;
+                    color: #eb445a;
+                    text-align: center;
+                    height: fit-content;
+                    padding: inherit;
+                    ion-icon{
+                        font-size: 16px;
+                        color: #eb445a;
+                    }
+                }
+            }
         }
+        }
+    }
     }
 }
