@@ -8,5 +8,40 @@
 </ion-header>
 
 <ion-content>
-  <ion-button color="primary" routerLink="/product-list">Primary</ion-button>
+  <!-- <ion-button color="primary" routerLink="/product-list">Primary</ion-button> -->
+  <ion-card class="carousel">
+    <ion-card-content >
+      <ion-slides pager="false" [options]="TopSlideOpts" #slides>
+        <ion-slide class="imageSlide" *ngFor="let item of Images; let i=index">
+          <img [src]="item.path" [alt]="'Mango Item'+i" />
+        </ion-slide>
+      </ion-slides>
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="category">
+    <ion-card-header color="light">
+      Shop by Category
+    </ion-card-header>  
+    <ion-card-content >
+     <ion-row>
+       <ion-col class="box" size="6">
+         <img src='/assets/images/Fruites.jpg' alt="Fruits"/>
+         <h5>Fruits</h5>
+       </ion-col>
+       <ion-col size="6">
+        <img src='/assets/images/Veggies.jpeg' alt="Veggies"/>
+        <h5>Vegetables</h5>
+       </ion-col>
+     </ion-row>
+    </ion-card-content>
+  </ion-card>
+  <ion-card class='ItemsCard'>
+    <ion-card-content >
+      <ion-slides pager="false" [options]="slideOpts" #slides>
+        <ion-slide class="imageSlide" *ngFor="let item of Images; let i=index">
+          <img [src]="item.path" [alt]="'Mango Item'+i" />
+        </ion-slide>
+      </ion-slides>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

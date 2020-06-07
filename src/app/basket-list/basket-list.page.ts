@@ -87,7 +87,7 @@ export class BasketListPage implements OnInit {
       count: 3
     },
   ]
-  
+
   removeItem(i) {
     console.log(i);
     let t = [...this.items]
@@ -98,7 +98,9 @@ export class BasketListPage implements OnInit {
     }
     this.handleTotal()
   }
-
+  deleteItem(index){
+    this.items.splice(index, 1)
+  }
   addItem(i) {
     console.log(i);
     let t = [...this.items]

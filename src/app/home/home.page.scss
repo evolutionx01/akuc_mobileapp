@@ -1,0 +1,30 @@
+ion-content{
+    .carousel{
+        // margin: 10px 0px;
+        ion-card-content{
+        height: 5rem;
+        padding: 0px;
+        .imageSlide{
+            height: 5rem;
+        }
+    }
+    }
+    .category{
+        text-align: center;
+        ion-card-header{
+            --background: red;
+        }   
+        ion-col:nth-child(odd){
+            border-right: 0.5px solid rgb(238, 238, 238);
+        }     
+        img{
+            height: 10rem;
+        }        
+    }
+    .ItemsCard{
+        .mainLayout{
+            width: 5rem;
+            overflow-x: scroll;
+        }
+    }
+}
