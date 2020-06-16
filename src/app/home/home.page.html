@@ -8,5 +8,16 @@
 </ion-header>
 
 <ion-content>
+  <ion-slides [options]="slideOptsOne">
+    <ion-slide *ngFor="let item of topStories">
+      <ion-card>
+        <ion-card-content>
+          <ion-img [src]="item.image"></ion-img>
+          <!-- <h2> <b>{{item.title}} </b></h2> -->
+          <!-- <h4>{{item.summary}}</h4> -->
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
   <ion-button color="primary" routerLink="/product-list">Primary</ion-button>
 </ion-content>
