@@ -8,16 +8,69 @@
 </ion-header>
 
 <ion-content>
-  <ion-slides [options]="slideOptsOne">
-    <ion-slide *ngFor="let item of topStories">
-      <ion-card>
-        <ion-card-content>
-          <ion-img [src]="item.image"></ion-img>
-          <!-- <h2> <b>{{item.title}} </b></h2> -->
-          <!-- <h4>{{item.summary}}</h4> -->
-        </ion-card-content>
-      </ion-card>
-    </ion-slide>
-  </ion-slides>
-  <ion-button color="primary" routerLink="/product-list">Primary</ion-button>
+  <!-- <ion-button color="primary" routerLink="/product-list">Primary</ion-button> -->
+  <ion-card class="carousel">
+    <ion-card-content>
+      <ion-slides pager="false" [options]="TopSlideOpts" #slides>
+        <ion-slide class="imageSlide" *ngFor="let item of Images; let i=index">
+          <img [src]="item.path" [alt]="'Mango Item'+i" />
+        </ion-slide>
+      </ion-slides>
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="category">
+    <ion-card-header color="light">
+      Shop by Category
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row>
+        <ion-col *ngFor="let item of categoryList;" size="6">
+          <img routerLink="/product-list" [src]="item.url" [alt]="item.name" />
+          <h5>{{item.name}}</h5>
+        </ion-col>
+        <!-- <ion-col size="6">
+          <img src='/assets/images/Veggies.jpeg' alt="Veggies" />
+          <h5>Vegetables</h5>
+        </ion-col> -->
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+  <ion-card class='itemsCard'>
+    <ion-card-content>
+      <ion-slides pager="false" [options]="slideOpts" #slides>
+        <ion-slide class="imageSlide" *ngFor="let item of ItemsList; let i=index">
+          <div class="box">
+            <img routerLink="/product-details" [src]="item.path" [alt]="'Mango Item'+i" />
+            <ion-label routerLink="/product-details">
+              <h5>{{item.name}}</h5>
+            </ion-label>
+            <ion-select [value]="item.selectedQuantity">
+              <ion-select-option *ngFor="let it of item.quantity" [value]="it.id">{{it.quan}}</ion-select-option>
+            </ion-select>
+            <ion-label class="OfPrice ion-text-start">
+              <h6>{{'Rs '+item.disPrice}}</h6>
+            </ion-label>
+            <ion-label class="AcPrice ion-text-start">
+              <h6>{{'Rs '+item.actualPrice}}</h6>
+            </ion-label>
+            <ion-row *ngIf="item.count===0" (click)="handleCount('add',i)" class="addCart">
+              <ion-button class="item-btn" color="danger">
+                Add
+              </ion-button>
+            </ion-row>
+            <ion-row class="addCartCount" *ngIf="item.count>0">
+              <ion-col (click)="handleCount('remove',i)" size="4">
+                <ion-icon name="remove-circle-outline"></ion-icon>
+              </ion-col>
+              <ion-col size="4" style="padding-bottom: 2px
+              ;">{{item.count}}</ion-col>
+              <ion-col (click)="handleCount('add',i)" size="4">
+                <ion-icon name="add-circle-outline"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

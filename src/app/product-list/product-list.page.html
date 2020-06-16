@@ -1,56 +1,79 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Product List</ion-title>
+<ion-header>
+  <ion-toolbar class="p-2">
+    <ion-label slot="start">{{total_list_items}} items</ion-label>
+    <ion-button slot="end">
+      <ion-icon name="filter-outline"></ion-icon> sort
+    </ion-button>
+    <ion-button slot="end">
+      <ion-icon name="funnel-outline"></ion-icon> filter
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-      <ion-card-title>Card Title</ion-card-title>
-    </ion-card-header>
-
-    <ion-card-content>
+<ion-content fullscreen>
+  <ion-list>
+    <ion-item *ngFor="let productitem of productlist">
       <ion-grid>
         <ion-row>
-          <ion-col size="6">
-            Keep close to Nature's heart... and break clear away, once in awhile,
-            and climb a mountain or spend a week in the woods. Wash your spirit clean.
+          <ion-col size="5">
+            <img src="{{productitem.imageUrl}}" routerLink="/product-details">
           </ion-col>
-          <ion-col size="6">
-            Keep close to Nature's heart... and break clear away, once in awhile,
-            and climb a mountain or spend a week in the woods. Wash your spirit clean.
-          </ion-col>
-          <ion-col size="4">
-            Keep close to Nature's heart... and break clear away, once in awhile,
-            and climb a mountain or spend a week in the woods. Wash your spirit clean.
-          </ion-col>
-          <ion-col size="4">
-            Keep close to Nature's heart... and break clear away, once in awhile,
-            and climb a mountain or spend a week in the woods. Wash your spirit clean.
+          <ion-col size="7">
+            <ion-label class="pb-2">
+              <h2 routerLink="/product-details">{{productitem.brandName}}</h2>
+              <h3 routerLink="/product-details">{{productitem.branditem}}</h3>
+            </ion-label>
+            <ion-select class="p-4">
+              <ion-select-option *ngFor="let item of productitem.quantitycol" [value]="item.itemCount">
+                {{item.itemCount}} kg</ion-select-option>
+            </ion-select>
+            <ion-row class="p-0">
+              <ion-col size="5">
+                <ion-label>
+                  <h3 class="text-strike">{{productitem.mrpPrices}}</h3>
+                  <h2>
+                    <p> {{productitem.offerPrices}}
+                  </h2>
+                </ion-label>
+              </ion-col>
+              <ion-col size="7">
+                <ion-button class="item-btn" color="danger" *ngIf="cartCount===0" (click)="handleCart('add')">
+                  Add
+                </ion-button>
+                <ion-row class="addCartCount" color="danger" *ngIf="cartCount>0">
+                  <ion-col (click)="handleCart('remove')" size="4">
+                    <ion-icon name="remove-circle-outline"></ion-icon>
+                  </ion-col>
+                  <ion-col size="4">{{cartCount}}</ion-col>
+                  <ion-col (click)="handleCart('add')" size="4">
+                    <ion-icon name="add-circle-outline"></ion-icon>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
           </ion-col>
         </ion-row>
       </ion-grid>
-
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <ion-item>
-      <ion-icon name="pin" slot="start"></ion-icon>
-      <ion-label>ion-item in a card, icon left, button right</ion-label>
-      <ion-button fill="outline" slot="end">View</ion-button>
     </ion-item>
 
-    <ion-card-content>
-      This is content, without any paragraph or header tags,
-      within an ion-card-content element.
-    </ion-card-content>
-  </ion-card>
-
-  <ion-button color="primary" routerLink="/product-details">Details</ion-button>
+  </ion-list>
 </ion-content>
+
+<!-- 
+<ion-content fullscreen>
+  <ion-list>
+    <ion-list-header>
+      Recent Conversations
+    </ion-list-header>
+
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img src="/assets/images/mango3.png">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>Finn</h2>
+        <h3>I'm a big deal</h3>
+      </ion-label>
+    </ion-item>
+    </ion-list>
+    </ion-content> -->
