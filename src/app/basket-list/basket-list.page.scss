@@ -1,0 +1,80 @@
+ion-content{
+    ion-list{
+        ion-item{
+            ion-row{
+                ion-col{
+                    font-size: smaller;
+                    .OfPrice{
+                        text-decoration: line-through;
+                        color: #666;
+                    }
+                    .AcPrice{
+                        font-weight: bold;
+                    }
+                    img{
+                        width: 20rem;
+                        height: 5rem;
+                        margin-top: 1rem;
+                    }
+                }
+            }
+            .titleName{
+                // font-weight: bold;
+                margin-top: 1rem;
+            }
+            .quantity{
+                color: #666;
+                margin-bottom: 1rem;
+            }
+            .addCartCount{
+                background-color: white;
+                color: #eb445a;
+                text-align: center;
+                height: fit-content;
+                padding: inherit;
+                font-size: 15px !important;
+                ion-row{
+                    margin-top: 0.5rem;
+                }
+                ion-icon{
+                    font-size: 20px;
+                    color: #eb445a;
+                }
+            }
+            
+        }
+    }
+}
+.totalPrice{
+    background: #37474f;
+    color: red;
+    padding: 3px 10px;
+    .total{
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 4px;
+    }
+    .savedPrice{
+        font-size: 14px;
+        font-weight: 600;
+        color: #84c225;
+    }
+    ion-col{
+        .checkout{
+            // width: 160px;
+            height: 40px;
+            border-radius: 3px;
+            --background: #e95f62;
+            font-size: 18px;
+            font-weight: 600;
+            color: #fff;
+        }
+    }
+}
+ion-footer{
+    ion-toolbar{
+        background-color: red;
+
+    }
+}
